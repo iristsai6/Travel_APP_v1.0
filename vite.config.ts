@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: process.env.GITHUB_ACTIONS ? '/Travel_APP_v1.0/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
