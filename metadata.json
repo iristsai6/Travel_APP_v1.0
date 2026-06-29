@@ -1,0 +1,6 @@
+{
+  "name": "Travel Web App",
+  "description": "An enterprise-grade single-page travel application with Firestore synchronization, budget planning, Splitwise expense management, and Google Maps integration.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
