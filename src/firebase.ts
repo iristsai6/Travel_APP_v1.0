@@ -5,7 +5,7 @@
 
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, initializeFirestore } from 'firebase/firestore';
 
 // 讀取從 Firebase 設置工具自動生成的憑證
 const firebaseConfig = {
@@ -24,8 +24,8 @@ const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
-// 綁定指定資料庫 ID：ai-studio-6913c995-862c-4a77-9590-8a03e7eede7b
-export const db = getFirestore(app, "ai-studio-6913c995-862c-4a77-9590-8a03e7eede7b");
+// 🔥【關鍵修改】強制指定 AI Studio 的 Database ID，使用 initializeFirestore 進行初始化
+export const db = initializeFirestore(app, {}, "ai-studio-6913c995-862c-4a77-9590-8a03e7eede7b");
 
 /**
  * 封裝 Firebase Storage 或模擬 Base64 頭像上傳，以確保不需設定 Storage Rule 也能運作
